@@ -4,7 +4,7 @@
 #
 Name     : pypi-infi.dtypes.iqn
 Version  : 0.4.0
-Release  : 11
+Release  : 12
 URL      : https://files.pythonhosted.org/packages/2e/0d/e05be651c207a35013f88be3f8938693d1beee3e1fad8f21a42b948d5d9c/infi.dtypes.iqn-0.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/2e/0d/e05be651c207a35013f88be3f8938693d1beee3e1fad8f21a42b948d5d9c/infi.dtypes.iqn-0.4.0.tar.gz
 Summary  : Datatype for IQN
@@ -13,6 +13,9 @@ License  : Python-2.0
 Requires: pypi-infi.dtypes.iqn-python = %{version}-%{release}
 Requires: pypi-infi.dtypes.iqn-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 No detailed description available
@@ -48,15 +51,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656400191
+export SOURCE_DATE_EPOCH=1672281423
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
