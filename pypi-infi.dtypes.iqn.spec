@@ -4,7 +4,7 @@
 #
 Name     : pypi-infi.dtypes.iqn
 Version  : 0.4.0
-Release  : 12
+Release  : 13
 URL      : https://files.pythonhosted.org/packages/2e/0d/e05be651c207a35013f88be3f8938693d1beee3e1fad8f21a42b948d5d9c/infi.dtypes.iqn-0.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/2e/0d/e05be651c207a35013f88be3f8938693d1beee3e1fad8f21a42b948d5d9c/infi.dtypes.iqn-0.4.0.tar.gz
 Summary  : Datatype for IQN
